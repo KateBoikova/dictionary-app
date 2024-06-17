@@ -1,0 +1,67 @@
+@import '../../styles/variables';
+
+.mainContainer {
+  height: 100vh;
+  background-color: $lightestGreen;
+  color: $darkGrey;
+  // padding: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.headerBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navBar {
+  ul {
+    list-style: none;
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+.searchContainer {
+  padding: 20px;
+}
+
+#form {
+  align-self: center;
+}
+
+.searchInput {
+  width: 70%;
+  min-height: 2rem;
+  border: 1px solid $darkGreen;
+  border-radius: 10px;
+}
+
+.btn {
+  height: 30px;
+  width: fit-content;
+  margin: 5px;
+  padding: auto 15px;
+
+  color: $darkGreen;
+  background-color: $lightGreen;
+  font-weight: 600;
+  border: 2px solid $darkGreen;
+  border-radius: 10px;
+}
+
+.btnToggle {
+  max-width: 10rem;
+  max-height: 3rem;
+  margin: 20px;
+  border: 1px solid $darkGreen;
+}
+
+.phonetics {
+  font-style: italic;
+}
+
+.meanings {
+  font-weight: 700;
+}
