@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
 // import NavBar from './components/NavBar';
 // import SearchBar from './components/SearchBar';
-// import SearchResults from './components/SearchResults';
 // import Theme from './components/Theme';
 import styles from './Dictionary.module.scss';
+import SearchResults from '../SearchResults/SearchResults';
 
 const url = `https://api.dictionaryapi.dev/api/v2/entries/en/`;
 
 function Dictionary () {
   const [input, setInput] = useState('');
-  const [result, setResult] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [result, setResult] = useState([]);
   const [isError, setIsError] = useState(false);
 
   const fetchResult = async value => {
@@ -23,7 +23,6 @@ function Dictionary () {
       }
       const result = await response.json();
       setResult(result);
-      console.log(result);
     } catch (error) {
       setIsError(true);
     }
@@ -41,10 +40,7 @@ function Dictionary () {
   const searchHandler = (e, input) => {
     e.preventDefault();
     fetchResult(input);
-    console.log(input);
   };
-  // const { word, phonetic, phonetics, origin, meanings } = result;
-
   return (
     <div className={styles.mainContainer}>
       <header className={styles.headerBar}>
@@ -76,40 +72,7 @@ function Dictionary () {
             Search
           </button>
         </form>
-
-        <div className={styles.resultsContainer}>
-          <p>
-            <span>{input}</span>
-            {result.map(word => {
-              return (
-                <>
-                  <span>{word.phonetic}</span>
-                  <span>
-                    {word.meanings.map(meanings => {
-                      return (
-                        <span>
-                          {meanings.partOfSpeech}{' '}
-                          {meanings.definitions.map(definition => {
-                            return (
-                              <ul>
-                                <li key='{definition.definition}'>
-                                  {definition.definition}
-                                </li>
-                              </ul>
-                            );
-                          })}
-                        </span>
-                      );
-                    })}
-                  </span>
-                </>
-              );
-            })}
-            {/* <span className={styles.phonetics}>{phonetics}</span>
-            <span className={styles.meanings}>{meanings}</span> */}
-          </p>
-          <button className={styles.btn}>Add</button>
-        </div>
+        {result.length > 0 && <SearchResults result={result} input={input} />}
       </main>
     </div>
   );
