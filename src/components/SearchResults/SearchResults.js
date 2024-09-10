@@ -4,7 +4,6 @@ import styles from './SearchResults.module.scss';
 function SearchResults (props) {
   const { result, input } = props;
 
-  // useEffect;
   if (result) {
     return (
       <div className={styles.resultsContainer}>

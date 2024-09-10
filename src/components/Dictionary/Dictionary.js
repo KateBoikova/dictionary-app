@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react';
-// import NavBar from './components/NavBar';
-// import SearchBar from './components/SearchBar';
-// import Theme from './components/Theme';
+import { useContext, useState } from 'react';
+import { ThemeContext } from '../../context/ThemeContext';
+import notFound from '../../img/NothingFoundCat.jpg';
 import styles from './Dictionary.module.scss';
 import SearchResults from '../SearchResults/SearchResults';
 
 const url = `https://api.dictionaryapi.dev/api/v2/entries/en/`;
 
 function Dictionary () {
+  const { darkTheme } = useContext(ThemeContext);
+
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState([]);
@@ -34,33 +35,24 @@ function Dictionary () {
   }
 
   if (isError) {
-    return <h2>There has been an error...</h2>;
+    return (
+      <div className={styles.notFound}>
+        <h2>Nothing is found</h2>
+        <img alt='No results found' src={notFound}></img>
+      </div>
+    );
   }
+  const theme = darkTheme ? styles.darkTheme : styles.lightTheme;
 
   const searchHandler = (e, input) => {
     e.preventDefault();
     fetchResult(input);
   };
+
   return (
-    <div className={styles.mainContainer}>
-      <header className={styles.headerBar}>
-        <nav className={styles.navBar}>
-          <ul>
-            <li>
-              <a href='#'>Quizzes</a>
-            </li>
-            <li>
-              <a href='#'>Saved</a>
-            </li>
-            <li>
-              <a href='#'>Folders</a>
-            </li>
-          </ul>
-        </nav>
-        <button className={styles.btnToggle}>Theme toggle</button>
-      </header>
+    <div className={`${styles.mainContainer} ${theme}`}>
       <main className={styles.searchContainer}>
-        <form id='form'>
+        <form id='form' className={styles.inputBar}>
           <input
             type='search'
             name='request'

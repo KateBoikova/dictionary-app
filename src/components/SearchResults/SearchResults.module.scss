@@ -1,15 +1,16 @@
-@import '../../styles/_variables.scss';
-@import '../../styles/mixins.scss';
+@use '../../styles/_variables';
+@use '../../styles/mixins';
 
 .resultsContainer {
+  margin: 20px auto;
   display: flex;
   flex-direction: column;
   max-height: fit-content;
-  width: 80%;
+  width: 70%;
   padding: 30px;
-  border: 1px solid $darkGreen;
+  border: 1px solid variables.$darkGreen;
   border-radius: 30px;
-  background-color: $greenishWhite;
+  background-color: variables.$greenishWhite;
 }
 
 .btn {
@@ -18,18 +19,18 @@
   border: none;
   border-radius: 10px;
   padding: 7px;
-  color: $darkGreen;
-  background-color: $mainGreen;
+  color: variables.$darkGreen;
+  background-color: variables.$mainGreen;
 }
 
 .btn:hover {
-  color: $mainGreen;
-  background-color: $darkGreen;
+  color: variables.$mainGreen;
+  background-color: variables.$darkGreen;
 }
 
 .wordMeanings,
 .meanings {
-  @include no-bullet-list;
+  @include mixins.no-bullet-list;
 }
 
 .partOfSpeech {
@@ -39,8 +40,8 @@
   padding: 0.15rem 0.5rem;
   margin: 10px;
   border-radius: 15px;
-  color: $darkGreen;
-  background-color: $lightGreen;
+  color: variables.$darkGreen;
+  background-color: variables.$lightGreen;
   font-size: 0.9rem;
   font-style: italic;
   font-weight: 600;
