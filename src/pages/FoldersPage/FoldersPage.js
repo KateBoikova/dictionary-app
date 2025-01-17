@@ -1,4 +1,4 @@
 function FoldersPage () {
-  return <div>FoldersPage</div>;
+  return <main>FoldersPage</main>;
 }
 export default FoldersPage;

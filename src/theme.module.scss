@@ -1,0 +1,16 @@
+@use './styles/variables';
+
+.theme {
+  overflow: auto;
+  height: auto;
+}
+
+.darkTheme {
+  background-color: variables.$darkGrey;
+  color: variables.$lightestGreen;
+}
+
+.lightTheme {
+  background-color: variables.$lightestGreen;
+  color: variables.$darkGrey;
+}

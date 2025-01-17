@@ -1,6 +1,5 @@
 import { useContext, useState } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
-import CONSTANTS from '../../constants';
 import Moon from './Moon';
 import Sun from './Sun';
 import styles from './Theme.module.scss';

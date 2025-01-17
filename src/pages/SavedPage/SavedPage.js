@@ -1,4 +1,4 @@
 function SavedPage () {
-  return <div>SavedPage</div>;
+  return <main>SavedPage</main>;
 }
 export default SavedPage;

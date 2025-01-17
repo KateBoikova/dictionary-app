@@ -10,7 +10,7 @@
   padding: 30px;
   border: 1px solid variables.$darkGreen;
   border-radius: 30px;
-  background-color: variables.$greenishWhite;
+  background-color: inherit;
 }
 
 .btn {
@@ -52,6 +52,10 @@
 }
 
 .meaning {
-  font-size: 1.25rem;
+  font-size: variables.$standartFont;
   margin: 1.5rem 0;
+}
+
+.message {
+  font-size: variables.$standartFont;
 }

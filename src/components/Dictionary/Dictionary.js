@@ -1,14 +1,10 @@
 import { useContext, useState } from 'react';
-import { ThemeContext } from '../../context/ThemeContext';
-import notFound from '../../img/NothingFoundCat.jpg';
 import styles from './Dictionary.module.scss';
 import SearchResults from '../SearchResults/SearchResults';
 
 const url = `https://api.dictionaryapi.dev/api/v2/entries/en/`;
 
 function Dictionary () {
-  const { darkTheme } = useContext(ThemeContext);
-
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState([]);
@@ -23,6 +19,7 @@ function Dictionary () {
         return;
       }
       const result = await response.json();
+      setIsError(false);
       setResult(result);
     } catch (error) {
       setIsError(true);
@@ -35,22 +32,15 @@ function Dictionary () {
   }
 
   if (isError) {
-    return (
-      <div className={styles.notFound}>
-        <h2>Nothing is found</h2>
-        <img alt='No results found' src={notFound}></img>
-      </div>
-    );
+    // return <p>Nothing found</p>;
   }
-  const theme = darkTheme ? styles.darkTheme : styles.lightTheme;
-
   const searchHandler = (e, input) => {
     e.preventDefault();
     fetchResult(input);
   };
 
   return (
-    <div className={`${styles.mainContainer} ${theme}`}>
+    <div className={`${styles.mainContainer} `}>
       <main className={styles.searchContainer}>
         <form id='form' className={styles.inputBar}>
           <input
@@ -64,7 +54,7 @@ function Dictionary () {
             Search
           </button>
         </form>
-        {result.length > 0 && <SearchResults result={result} input={input} />}
+        {<SearchResults result={result} input={input} isError={isError} />}
       </main>
     </div>
   );

@@ -4,16 +4,6 @@
   height: 100vh;
 }
 
-.darkTheme {
-  background-color: variables.$darkGrey;
-  color: variables.$lightestGreen;
-}
-
-.lightTheme {
-  background-color: variables.$lightestGreen;
-  color: variables.$darkGrey;
-}
-
 .searchContainer {
   padding: 20px;
   display: flex;
@@ -81,16 +71,4 @@
 
 .meanings {
   font-weight: 700;
-}
-
-.notFound {
-  margin: auto;
-  width: fit-content;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  img {
-    border-radius: 50%;
-  }
 }

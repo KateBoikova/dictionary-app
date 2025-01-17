@@ -2,9 +2,12 @@ import Save from './Save.js';
 import styles from './SearchResults.module.scss';
 
 function SearchResults (props) {
-  const { result, input } = props;
-
-  if (result) {
+  const { result, input, isError } = props;
+  console.log(result);
+  if (isError) {
+    return <p className={styles.message}>Nothing found</p>;
+  }
+  if (result.length > 0) {
     return (
       <div className={styles.resultsContainer}>
         <h2>{input}</h2>

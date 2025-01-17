@@ -1,4 +1,4 @@
 function QuizzesPage () {
-  return <div>QuizzesPage</div>;
+  return <main>QuizzesPage</main>;
 }
 export default QuizzesPage;
