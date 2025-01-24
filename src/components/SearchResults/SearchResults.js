@@ -1,14 +1,12 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { save, del } from '../../features/saver/saverSlice.js';
+import { useDispatch } from 'react-redux';
+import { save } from '../../features/saver/saverSlice.js';
 import Save from './Save.js';
 import styles from './SearchResults.module.scss';
 
 function SearchResults (props) {
   const { result, input, isError } = props;
-  const savedItems = useSelector(state => state.saver.saved);
   const dispatch = useDispatch();
-
-  console.log(result);
+  console.log('result', result);
   if (isError) {
     return <p className={styles.message}>Nothing found</p>;
   }

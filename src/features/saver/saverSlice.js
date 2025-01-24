@@ -6,8 +6,6 @@ export const saverSlice = createSlice({
   reducers: {
     save: (state, action) => {
       state.saved = [...state.saved, ...action.payload];
-      console.log('action:', action);
-      console.log('state', state);
     },
     del: state => {
       console.log('state', state);
