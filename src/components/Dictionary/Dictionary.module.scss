@@ -1,7 +1,8 @@
 @use '../../styles/variables';
 
 .mainContainer {
-  height: 100vh;
+  min-height: 100vh;
+  height: fit-content;
 }
 
 .searchContainer {
