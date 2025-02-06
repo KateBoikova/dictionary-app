@@ -4,15 +4,13 @@ import SearchResults from '../../components/SearchResults/SearchResults';
 
 function SavedPage (props) {
   const { savedItems } = props;
-  console.log('savedItems', savedItems);
   // const savedItems = useSelector(state => state.saver.saved);
   const dispatch = useDispatch();
-
   return (
     <main>
-      {savedItems.map(item => (
-        <SearchResults result={[item]} />
-      ))}
+      {savedItems.map(items => {
+        return <SearchResults result={items} />;
+      })}
     </main>
   );
 }

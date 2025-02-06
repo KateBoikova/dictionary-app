@@ -8,6 +8,8 @@ import FoldersPage from './pages/FoldersPage/FoldersPage';
 import Header from './components/Header/Header';
 import { ThemeContext } from './context/ThemeContext';
 import styles from './theme.module.scss';
+import { enableMapSet } from 'immer';
+enableMapSet();
 
 function App () {
   const { darkTheme } = useContext(ThemeContext);

@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
 import Moon from './Moon';
 import Sun from './Sun';

@@ -1,14 +1,32 @@
 import { useContext, useState } from 'react';
+import { connect } from 'react-redux';
 import styles from './Dictionary.module.scss';
 import SearchResults from '../SearchResults/SearchResults';
 
 const url = `https://api.dictionaryapi.dev/api/v2/entries/en/`;
 
-function Dictionary () {
+// const mapStateToProps = state => {
+//   const { saver } = state;
+//   return { savedWordsList: saver.saved };
+// };
+
+function Dictionary (props) {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState([]);
   const [isError, setIsError] = useState(false);
+
+  // const { savedWordsList } = props;
+  // console.log('savedWordsList', savedWordsList);
+
+  // const savedWordsDB = new Set();
+
+  // function createSavedWordsDB (savedWordsDB, savedWordsList) {
+  //   savedWordsList.forEach(item => {
+  //     savedWordsDB.add(item[0]);
+  //   });
+  //   return savedWordsDB;
+  // }
 
   const fetchResult = async value => {
     try {
@@ -54,7 +72,15 @@ function Dictionary () {
             Search
           </button>
         </form>
-        {<SearchResults result={result} input={input} isError={isError} />}
+
+        {/* {createSavedWordsDB()} */}
+        {
+          <SearchResults
+            result={result}
+            isError={isError}
+            // savedWordsDB={savedWordsDB}
+          />
+        }
       </main>
     </div>
   );

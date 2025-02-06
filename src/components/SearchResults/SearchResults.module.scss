@@ -2,7 +2,7 @@
 @use '../../styles/mixins';
 
 .resultsContainer {
-  margin: 20px auto;
+  margin: 30px auto;
   display: flex;
   flex-direction: column;
   max-height: fit-content;
@@ -19,10 +19,14 @@
   border: none;
   border-radius: 10px;
   padding: 7px;
-  color: variables.$darkGreen;
+  // color: variables.$darkGreen;
   background-color: variables.$mainGreen;
 }
 
+.delBtn {
+  color: variables.$lightestGreen;
+  background-color: variables.$red;
+}
 .btn:hover {
   color: variables.$mainGreen;
   background-color: variables.$darkGreen;
@@ -52,10 +56,10 @@
 }
 
 .meaning {
-  font-size: variables.$standartFont;
+  font-size: variables.$standardFont;
   margin: 1.5rem 0;
 }
 
 .message {
-  font-size: variables.$standartFont;
+  font-size: variables.$standardFont;
 }
