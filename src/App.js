@@ -6,6 +6,7 @@ import QuizzesPage from './pages/QuizzesPage/QuizzesPage';
 import SavedPage from './pages/SavedPage/SavedPage';
 import FoldersPage from './pages/FoldersPage/FoldersPage';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import { ThemeContext } from './context/ThemeContext';
 import styles from './theme.module.scss';
 import { enableMapSet } from 'immer';
@@ -23,6 +24,7 @@ function App () {
         <Route path='/saved' element={<SavedPage />} />
         <Route path='/folders' element={<FoldersPage />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
