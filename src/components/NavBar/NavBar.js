@@ -5,16 +5,13 @@ function NavBar () {
   return (
     <nav className={styles.navBar}>
       <ul className={styles.navItemsContainer}>
-        <li>
-          <NavLink to='/'>Home</NavLink>
+        <li className={styles.navItem}>
+          <NavLink to='/'>Search</NavLink>
         </li>
-        <li>
-          <NavLink to='/quizzes'>Quizzes</NavLink>
-        </li>
-        <li>
+        <li className={styles.navItem}>
           <NavLink to='/saved'>Saved</NavLink>
         </li>
-        <li>
+        <li className={styles.navItem}>
           <NavLink to='/folders'>Folders</NavLink>
         </li>
       </ul>
