@@ -8,6 +8,7 @@ const Sun = () => {
         stroke-width='1.5'
         stroke='currentColor'
         class='size-6'
+        color='orange'
       >
         <path
           stroke-linecap='round'
