@@ -3,6 +3,12 @@ footer {
   justify-content: center;
 }
 
-p {
+.footer {
   font-size: 1.1rem;
+  a {
+    color: green;
+  }
+  a:hover {
+    color: #ff8c00;
+  }
 }

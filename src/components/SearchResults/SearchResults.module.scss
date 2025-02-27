@@ -5,7 +5,6 @@
   margin: 30px auto;
   display: flex;
   flex-direction: column;
-  // height: max-content;
   width: 70%;
   padding: 30px;
   border: 1px solid variables.$darkGreen;
@@ -27,9 +26,12 @@
   color: variables.$lightestGreen;
   background-color: variables.$red;
 }
-.btn:hover {
+.delBtn:hover {
+  background-color: darken($color: variables.$red, $amount: 10%);
+}
+.saveBtn:hover {
   color: variables.$mainGreen;
-  background-color: variables.$darkGreen;
+  background-color: darken($color: variables.$mainGreen, $amount: 20%);
 }
 
 .wordMeanings,

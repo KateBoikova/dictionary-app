@@ -1,0 +1,17 @@
+@use '../../styles/variables';
+
+.snackbar {
+  width: fit-content;
+  position: fixed;
+  top: 90vh;
+  left: 50vw;
+  padding: 5px;
+  margin: auto;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 20px;
+  border: 1px solid variables.$darkGrey;
+  background-color: variables.$lightGreen;
+  color: variables.$darkGrey;
+  z-index: 1;
+}
