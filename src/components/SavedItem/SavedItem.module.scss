@@ -1,0 +1,23 @@
+@use '../../styles/_variables';
+
+.savedContainer {
+  width: 70%;
+  border: 1px solid variables.$darkGreen;
+  border-radius: 30px;
+  margin-top: 20px;
+  padding: 10px 50px;
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.hideToggle {
+  font-size: 1.75rem;
+}

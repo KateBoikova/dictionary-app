@@ -1,0 +1,30 @@
+@use '../../styles/mixins';
+@use '../../styles/_variables';
+
+.wordMeanings,
+.meanings {
+  @include mixins.no-bullet-list;
+}
+
+.partOfSpeech {
+  display: block;
+  max-height: 30px;
+  max-width: fit-content;
+  padding: 0.15rem 0.5rem;
+  margin: 10px;
+  border-radius: 15px;
+  color: variables.$darkGreen;
+  background-color: variables.$lightGreen;
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.phonetics {
+  font-size: 0.9rem;
+}
+
+.meaning {
+  font-size: variables.$standardFont;
+  margin: 1.5rem 0;
+}

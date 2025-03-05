@@ -1,15 +1,13 @@
-import { useDispatch, connect } from 'react-redux';
-import { del } from '../../features/saver/saverSlice';
-import SearchResults from '../../components/SearchResults/SearchResults';
+import { connect } from 'react-redux';
+import styles from './SavedPage.module.scss';
+import SavedItem from '../../components/SavedItem/SavedItem';
 
 function SavedPage (props) {
   const { savedItems } = props;
-  // const savedItems = useSelector(state => state.saver.saved);
-  const dispatch = useDispatch();
   return (
-    <main>
+    <main className={styles.container}>
       {savedItems.map(items => {
-        return <SearchResults result={items} />;
+        return <SavedItem result={items} />;
       })}
     </main>
   );

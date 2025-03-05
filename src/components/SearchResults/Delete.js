@@ -6,7 +6,6 @@ function Delete () {
       width='24px'
       viewBox='0 0 24 24'
       fill='currentColor'
-      class='size-6'
     >
       <path
         fillRule='evenodd'
