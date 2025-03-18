@@ -1,0 +1,26 @@
+@use '../../styles/_variables';
+
+.btn {
+  display: block;
+  align-self: flex-end;
+  border: none;
+  border-radius: 10px;
+  padding: 7px;
+  background-color: variables.$mainGreen;
+}
+
+.btnContainer {
+  align-self: self-end;
+}
+
+.delBtn {
+  color: variables.$lightestGreen;
+  background-color: variables.$red;
+}
+.delBtn:hover {
+  background-color: darken($color: variables.$red, $amount: 10%);
+}
+.saveBtn:hover {
+  color: variables.$mainGreen;
+  background-color: darken($color: variables.$mainGreen, $amount: 20%);
+}

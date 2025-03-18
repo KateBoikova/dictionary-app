@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import SearchResultItem from '../SearchResultItem/SearchResultItem';
+import Buttons from '../Buttons/Buttons';
 import styles from './SavedItem.module.scss';
 
 function SavedItem (props) {
-  const { result } = props;
+  const { result, savedItems } = props;
   const [isOpened, setIsOpened] = useState(false);
   let id = result[0].word;
   return (
@@ -17,7 +18,9 @@ function SavedItem (props) {
         <h2>{id}</h2>
         <span className={styles.hideToggle}>{isOpened ? '-' : '+'}</span>
       </div>
-      {isOpened && <SearchResultItem result={result} />}
+      {isOpened &&
+        ((<SearchResultItem result={result} />),
+        (<Buttons result={result} savedItems={savedItems} />))}
     </div>
   );
 }
