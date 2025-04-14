@@ -1,7 +1,12 @@
 import { createContext, useCallback, useState } from 'react';
 import CONSTANTS from '../constants';
 
-const ThemeContext = createContext();
+type ThemeContextType = {
+  darkTheme: boolean;
+  toggleTheme: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const ThemeContext = createContext<null | ThemeContextType>(null);
 
 const ThemeProvider = ({ children }) => {
   const [darkTheme, setDarkTheme] = useState(false);
@@ -17,7 +22,7 @@ const ThemeProvider = ({ children }) => {
 
   const toggleTheme = useCallback(() => {
     setDarkTheme(prevTheme => !prevTheme);
-  });
+  }, [setDarkTheme]);
 
   return (
     <ThemeContext.Provider value={{ darkTheme, toggleTheme }}>

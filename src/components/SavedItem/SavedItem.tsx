@@ -2,11 +2,12 @@ import { useState } from 'react';
 import SearchResultItem from '../SearchResultItem/SearchResultItem';
 import Buttons from '../Buttons/Buttons';
 import styles from './SavedItem.module.scss';
+import { Word, Props } from '../../types/types';
 
-function SavedItem (props) {
-  const { result, savedItems } = props;
+function SavedItem ({ result, savedItems }: Props) {
   const [isOpened, setIsOpened] = useState(false);
-  let id = result[0].word;
+  let id: any = result[0].word;
+
   return (
     <div className={styles.savedContainer}>
       <div
@@ -18,9 +19,12 @@ function SavedItem (props) {
         <h2>{id}</h2>
         <span className={styles.hideToggle}>{isOpened ? '-' : '+'}</span>
       </div>
-      {isOpened &&
-        ((<SearchResultItem result={result} />),
-        (<Buttons result={result} savedItems={savedItems} />))}
+      {isOpened && (
+        <>
+          <SearchResultItem result={result} />,
+          <Buttons result={result} savedItems={savedItems} />,
+        </>
+      )}
     </div>
   );
 }

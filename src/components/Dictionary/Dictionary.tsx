@@ -64,7 +64,7 @@ function Dictionary (props) {
           <input
             type='search'
             name='request'
-            tabIndex='0'
+            tabIndex={0}
             placeholder='Search for a word or a phrase...'
             onChange={e => setInput(e.target.value)}
             className={styles.searchInput}

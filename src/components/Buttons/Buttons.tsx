@@ -4,13 +4,13 @@ import { save, del } from '../../features/saver/saverSlice.js';
 import Delete from '../SearchResults/Delete.js';
 import Save from '../SearchResults/Save.js';
 import Snackbar from '../Snackbar/Snackbar.js';
+import { Word, Props } from '../../types/types';
 
-function Buttons (props) {
-  const { result, savedItems } = props;
+function Buttons ({ result, savedItems }: Props) {
   const dispatch = useDispatch();
-  let id = result[0].word;
+  let id: any = result[0].word;
 
-  const canSave = (result, savedItems) => {
+  const canSave = (result: Word[], savedItems: Word[]): boolean => {
     let wordResult = result[0].word;
     if (savedItems.length <= 0) {
       return true;
@@ -53,9 +53,7 @@ function Buttons (props) {
     );
   };
 
-  const renderBtn = canSave(result, savedItems)
-    ? saveBtn(result)
-    : deleteBtn(result);
+  const renderBtn = canSave(result, savedItems) ? saveBtn() : deleteBtn();
   return <div className={styles.btnContainer}>{renderBtn}</div>;
 }
 

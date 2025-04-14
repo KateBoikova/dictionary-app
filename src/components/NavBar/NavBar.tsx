@@ -25,14 +25,6 @@ function NavBar () {
             Saved
           </NavLink>
         </li>
-        <li className={styles.navItem}>
-          <NavLink
-            to='/folders'
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          >
-            Folders
-          </NavLink>
-        </li>
       </ul>
     </nav>
   );
