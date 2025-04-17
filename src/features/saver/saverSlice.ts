@@ -2,13 +2,20 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const saverSlice = createSlice({
   name: 'saver',
-  initialState: { saved: [], snackbarMessage: '', snackbarStatus: false },
+  initialState: {
+    saved: [],
+    savedWordsList: [],
+    snackbarMessage: '',
+    snackbarStatus: false,
+  },
 
   reducers: {
     save: (state, action) => {
       state.saved = [...state.saved, action.payload.result];
       state.snackbarMessage = 'Saved!';
       state.snackbarStatus = true;
+      console.log('action', action.payload.result[0].word);
+
       // let newSaved = new Map(state.saved.entries());
       // newSaved.set(action.payload.id, action.payload.result);
       // state.saved = newSaved;

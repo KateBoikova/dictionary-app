@@ -1,7 +1,7 @@
 import { connect, ConnectedProps } from 'react-redux';
 import styles from './SearchResults.module.scss';
 import Buttons from '../Buttons/Buttons';
-import Snackbar from '../Snackbar/Snackbar.js';
+import Snackbar from '../Snackbar/Snackbar';
 import SearchResultItem from '../SearchResultItem/SearchResultItem';
 import { Word } from '../../types/types';
 

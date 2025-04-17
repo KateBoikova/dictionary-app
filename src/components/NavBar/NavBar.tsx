@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import { NavLink } from 'react-router-dom';
 import styles from './NavBar.module.scss';
 
@@ -9,7 +10,7 @@ function NavBar () {
   return (
     <nav className={styles.navBar}>
       <ul className={styles.navItemsContainer}>
-        <li className={styles.navItem}>
+        <li key={uuidv4()} className={styles.navItem}>
           <NavLink
             to='/'
             style={({ isActive }) => (isActive ? activeStyle : undefined)}

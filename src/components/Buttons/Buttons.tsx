@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
 import styles from './Buttons.module.scss';
-import { save, del } from '../../features/saver/saverSlice.js';
+import { save, del } from '../../features/saver/saverSlice';
 import Delete from '../SearchResults/Delete.js';
 import Save from '../SearchResults/Save.js';
-import Snackbar from '../Snackbar/Snackbar.js';
+import Snackbar from '../Snackbar/Snackbar';
 import { Word, Props } from '../../types/types';
 
 function Buttons ({ result, savedItems }: Props) {
