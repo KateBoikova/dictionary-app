@@ -20,7 +20,6 @@ function App () {
         <Route path='/' element={<SearchPage />} />
 
         <Route path='/saved' element={<SavedPage />} />
-        {/* <Route path='/folders' element={<FoldersPage />} /> */}
       </Routes>
       <Footer />
     </div>

@@ -2,12 +2,11 @@ import { useState } from 'react';
 import SearchResultItem from '../SearchResultItem/SearchResultItem';
 import Buttons from '../Buttons/Buttons';
 import styles from './SavedItem.module.scss';
-import { Word, Props } from '../../types/types';
+import { Props } from '../../types/types';
 
 function SavedItem ({ result, savedItems }: Props) {
   const [isOpened, setIsOpened] = useState(false);
   let id: any = result[0].word;
-
   return (
     <div className={styles.savedContainer}>
       <div
@@ -21,8 +20,8 @@ function SavedItem ({ result, savedItems }: Props) {
       </div>
       {isOpened && (
         <>
-          <SearchResultItem result={result} />,
-          <Buttons result={result} savedItems={savedItems} />,
+          <SearchResultItem result={result} />
+          <Buttons result={result} savedItems={savedItems} />
         </>
       )}
     </div>

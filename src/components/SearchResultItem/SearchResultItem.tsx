@@ -4,15 +4,14 @@ import { Props } from '../../types/types';
 
 function SearchResultItem (props: Props) {
   const { result } = props;
-
   return (
     <>
-      {result.map(word => {
+      {result.map(({ phonetic, meanings }) => {
         return (
           <>
-            <span className={styles.phonetics}>{word.phonetic}</span>
+            <span className={styles.phonetics}>{phonetic}</span>
             <ul className={styles.wordMeanings}>
-              {word.meanings.map(item => {
+              {meanings.map(item => {
                 return (
                   <li key={uuidv4()}>
                     <span className={styles.partOfSpeech}>

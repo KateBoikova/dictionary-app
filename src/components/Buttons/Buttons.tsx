@@ -10,7 +10,7 @@ function Buttons ({ result, savedItems }: Props) {
   const dispatch = useDispatch();
   let id: any = result[0].word;
 
-  const canSave = (result: Word[], savedItems: Word[]): boolean => {
+  const canSave = (result: Word[], savedItems: Word[][]): boolean => {
     let wordResult = result[0].word;
     if (savedItems.length <= 0) {
       return true;

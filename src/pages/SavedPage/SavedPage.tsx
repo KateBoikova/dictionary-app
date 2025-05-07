@@ -2,11 +2,24 @@ import { connect } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './SavedPage.module.scss';
 import SavedItem from '../../components/SavedItem/SavedItem';
-import { Word, Props } from '../../types/types';
+import { Props } from '../../types/types';
 
-function SavedPage (props) {
+function SavedPage (props: Props) {
   const { savedItems } = props;
-  // return
+  console.log('savedItems', savedItems);
+
+  if (savedItems.length === 0) {
+    return (
+      <main className={styles.container}>
+        <p className={styles.nothingSaved}>
+          Nothing has been saved yet.{' '}
+          <a className={styles.link} href='/'>
+            Return to search
+          </a>
+        </p>
+      </main>
+    );
+  }
   if (savedItems) {
     return (
       <main className={styles.container}>
@@ -17,9 +30,6 @@ function SavedPage (props) {
         })}
       </main>
     );
-  }
-  if (!savedItems) {
-    return <p>Nothing is saved yet</p>;
   }
 }
 const mapStateToProps = state => {

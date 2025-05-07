@@ -3,3 +3,12 @@
   padding: 0;
   margin: 0;
 }
+
+@mixin anchor-hover {
+  a {
+    color: green;
+  }
+  a:hover {
+    color: #ff8c00;
+  }
+}

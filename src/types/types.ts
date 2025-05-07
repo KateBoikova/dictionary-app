@@ -6,18 +6,18 @@ export type Meaning = {
 export type Definition = {
   antonyms: [];
   definition: string;
-  example: string;
+  example?: string;
   synonyms: [];
 };
 
 export type Word = {
   word: string;
-  phonetic: string;
+  phonetic?: string;
   phonetics: [];
   meanings: Meaning[];
 };
 
 export type Props = {
   result?: Word[];
-  savedItems?: Word[];
+  savedItems?: Word[][];
 };

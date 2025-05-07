@@ -6,7 +6,7 @@ import SearchResultItem from '../SearchResultItem/SearchResultItem';
 import { Word } from '../../types/types';
 
 interface RootState {
-  saver: { saved: Word[] };
+  saver: { saved: Word[][] };
 }
 
 const mapState = (state: RootState) => {
@@ -20,7 +20,7 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 interface Props extends PropsFromRedux {
   result: any;
   isError: boolean;
-  savedItems: Word[];
+  savedItems: Word[][];
 }
 
 function SearchResults (props: Props) {
