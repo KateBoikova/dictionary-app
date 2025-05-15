@@ -5,6 +5,6 @@
     "target": "es5",
     "jsx": "react-jsx"
   },
-  "include": ["client/src/**/*"],
+  "include": ["src/**/*"],
   "exclude": ["./plugins/**/*", "./typings/**/*", "./dist/**/*"]
 }
