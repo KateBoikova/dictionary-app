@@ -3,9 +3,7 @@ import config from '../config/config';
 // import Word from './word';
 
 mongoose
-  .connect(
-    `mongodb+srv://boykovaekaterinai:justalearner9@cluster0.w8pkq.mongodb.net/${config.dbName}?retryWrites=true&w=majority`
-  )
+  .connect(`${config.host}`)
   .then(() => console.log('Connection OK'))
   .catch(err => console.log('err', err));
 
