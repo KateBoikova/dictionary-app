@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { current } from '@reduxjs/toolkit';
+import * as API from './../../api';
 
 export const saverSlice = createSlice({
   name: 'saver',
@@ -12,12 +13,14 @@ export const saverSlice = createSlice({
 
   reducers: {
     save: (state, action) => {
+      API.createWord(action.payload.result);
+      console.log('action.payload.result', action.payload.result);
       state.saved = [...state.saved, action.payload.result];
       state.snackbarMessage = 'Saved!';
       state.snackbarStatus = true;
       let newSaved = action.payload.result[0].word;
       state.savedWordsList.push(newSaved);
-      let newSavedList = state.savedWordsList;
+      // let newSavedList = state.savedWordsList;
 
       // let newSaved = new Map(state.saved.entries());
       // newSaved.set(action.payload.id, action.payload.result);
