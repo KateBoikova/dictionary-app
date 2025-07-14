@@ -1,17 +1,25 @@
-import mongoose, { Schema } from 'mongoose';
+// import mongoose from 'mongoose';
+import mongoose from './index';
 
-export interface Word {
-  id: number;
-  word: [];
-  tag?: string;
-}
+const wordSchema = new mongoose.Schema({
+  word: {
+    license: { name: String, url: String },
+    meanings: [
+      {
+        partOfSpeech: String,
+        definitions: [Object],
+        phonetic: String,
+        phonetics: [Object],
+        sourceUrls: [String],
+        word: String,
+      },
+    ],
+  },
 
-const wordSchema = new Schema({
-  id: { type: Number },
-  word: { type: Array },
   tag: { type: String },
 });
 
-const Word = mongoose.model('words', wordSchema);
+const Word = mongoose.model('Word', wordSchema);
 
-export let words: Word[] = [];
+export default Word;
+// export let words = Word[];
