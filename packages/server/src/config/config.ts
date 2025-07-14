@@ -10,7 +10,7 @@ interface Config {
 }
 
 const config: Config = {
-  host: 'mongodb+srv://boykovaekaterinai:justalearner9@cluster0.w8pkq.mongodb.net/?retryWrites=true&w=majority',
+  host: '',
   port: Number(process.env.PORT) || 5000,
   nodeEnv: process.env.NODE_ENV || 'development',
   dbName: 'DICTIONARY_APP',
