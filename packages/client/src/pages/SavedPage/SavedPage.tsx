@@ -6,7 +6,6 @@ import { Props } from '../../types/types';
 
 function SavedPage (props: Props) {
   const { savedItems } = props;
-  console.log('savedItems', savedItems);
 
   if (savedItems.length === 0) {
     return (
