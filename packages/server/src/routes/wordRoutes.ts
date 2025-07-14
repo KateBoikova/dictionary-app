@@ -10,7 +10,6 @@ import {
 const wordRouter = Router();
 
 wordRouter.route('/').get(getWords).post(createWord);
-
 wordRouter.route('/:id').get(getWordById).put(updateWord).delete(deleteWord);
 
 export default wordRouter;
