@@ -1,11 +1,14 @@
 import mongoose from 'mongoose';
 import config from '../config/config';
-
-const { Schema } = mongoose;
+// import Word from './word';
 
 mongoose
-  .connect(`mongodb://${config.host}:${config.port}/${config.nodeEnv}`)
-  .then(data => console.log('Connection OK'))
+  .connect(
+    `mongodb+srv://boykovaekaterinai:justalearner9@cluster0.w8pkq.mongodb.net/${config.dbName}?retryWrites=true&w=majority`
+  )
+  .then(() => console.log('Connection OK'))
   .catch(err => console.log('err', err));
 
-module.exports.Word = require('./word');
+export default mongoose;
+// module.exports.Word = require('./word');
+// export  {Word} from './word';
