@@ -1,3 +1,4 @@
 playground-1.mongodb.js
 .env
 .prettierrc.json
+packages/server/src/config/config.ts
