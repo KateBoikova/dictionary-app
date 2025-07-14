@@ -1,16 +1,26 @@
 import { Request, Response, NextFunction } from 'express';
-import { words, Word } from '../models/word';
+import createHttpError from 'http-errors';
+import Word from '../models/word';
 
 export const createWord = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
+  const { body } = req;
   try {
-    const { word, tag } = req.body;
-    const newWord: Word = { id: Date.now(), word, tag };
-    words.push(newWord);
-    res.status(201).json(newWord);
+    console.log('body', body);
+    // const { word, tag } = req.body;
+    const createdWord = await Word.create(body);
+
+    if (!createdWord) {
+      return next(createHttpError(400, 'Bad request'));
+    }
+    res.status(201).send({ data: createdWord });
+    return;
+    // const newWord: Word = { id: Date.now(), word, tag };
+    // words.push(newWord);
+    // res.status(201).json(newWord);
   } catch (error) {
     next(error);
   }
@@ -22,7 +32,9 @@ export const getWords = async (
   next: NextFunction
 ) => {
   try {
-    res.json(words);
+    const foundWords = await Word.find();
+    res.status(200).send({ data: foundWords });
+    // res.json(words);
   } catch (error) {
     next(error);
   }
@@ -33,14 +45,17 @@ export const getWordById = async (
   res: Response,
   next: NextFunction
 ) => {
+  const {
+    params: { id },
+  } = req;
   try {
-    const id = parseInt(req.params.id, 10);
-    const word = words.find(word => word.id === id);
-    if (!word) {
-      res.status(404).json({ message: 'Word not found' });
+    const foundWord = await Word.findById(id);
+    if (foundWord) {
+      res.status(200).send({ data: foundWord });
       return;
+    } else {
+      return next(createHttpError(404, 'Word not found'));
     }
-    res.json(word);
   } catch (error) {
     next(error);
   }
@@ -51,16 +66,17 @@ export const updateWord = async (
   res: Response,
   next: NextFunction
 ) => {
+  const {
+    params: { id },
+    body,
+  } = req;
   try {
-    const id = parseInt(req.params.id, 10);
-    const { tag } = req.body;
-    const wordIndex = words.findIndex(word => word.id === id);
-    if (wordIndex === -1) {
-      res.status(404).json({ message: 'Word not found' });
+    // const {tag} = req.body;
+    const updatedWord = await Word.findByIdAndUpdate(id, body);
+    if (updatedWord) {
+      res.status(200).send({ data: updatedWord });
       return;
     }
-    words[wordIndex].tag = tag;
-    res.json(words[wordIndex]);
   } catch (error) {
     next(error);
   }
@@ -71,15 +87,17 @@ export const deleteWord = async (
   res: Response,
   next: NextFunction
 ) => {
+  const {
+    params: { id },
+  } = req;
+
   try {
-    const id = parseInt(req.params.id, 10);
-    const wordIndex = words.findIndex(word => word.id === id);
-    if (wordIndex === -1) {
-      res.status(404).json('Word not found');
-      return;
+    // const wordId = JSON.parse(JSON.stringify(id));
+    const deletedWord = await Word.findByIdAndDelete(id);
+    if (!deletedWord) {
+      return next(createHttpError(404, 'Word not found'));
     }
-    const deletedWord = words.splice(wordIndex, 1)[0];
-    res.json(deletedWord);
+    res.status(204).end();
   } catch (error) {
     next(error);
   }
